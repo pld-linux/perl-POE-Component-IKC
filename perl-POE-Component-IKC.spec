@@ -1,34 +1,36 @@
 #
 # Conditional build:
 %bcond_without	autodeps	# don't BR packages needed only for resolving deps
-%bcond_without	tests	# do not perform "make test"
+%bcond_without	tests		# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	POE
 %define		pnam	Component-IKC
-Summary:	perl(POE::Component::IKC) ‚àí POE Inter‚àíKernel Communication
+Summary:	POE::Component::IKC - POE Inter-Kernel Communication
+Summary(pl):	POE::Component::IKC - komunikacja wewn±trz j±dra POE
 Name:		perl-POE-Component-IKC
 Version:	0.1802
 Release:	0.1
-# note if it is "same as perl"
-License:	(enter GPL/LGPL/BSD/BSD-like/Artistic/other license name here)
+License:	unknown
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	d76686340a6f13d024e7fb96891e3258
-URL:		http://search.cpan.org/dist/%{pdir}-%{pnam}
+URL:		http://search.cpan.org/dist/POE-Component-IKC/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with autodeps} || %{with tests}
-BuildRequires:	perl-POE
+BuildRequires:	perl-POE >= 0.28
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-#%define		_noautoreq	'perl(anything_fake_or_conditional)'
-
 %description
-This a first draft if Inter‚ÄêKernel Communication for POE.  It is intended as a
-point of reference for discusion of issues involved.
+This a first draft if Inter-Kernel Communication for POE. It is
+intended as a point of reference for discusion of issues involved.
+
+%description -l pl
+To jest pierwszy szkic komunikacji wewn±trz j±dra dla POE. Ma byÊ
+punktem odniesienia do dyskutowania napotkanych problemÛw.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -46,11 +48,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} pure_install \
 	DESTDIR=$RPM_BUILD_ROOT
-%{__install} -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-%{__install} client client2 client3 lclient $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/
-%{__install} server server2 userver $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/
-%{__install} shut-client shut-server test-lite test-client $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/
-
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+install client client2 client3 lclient $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+install server server2 userver $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+install shut-client shut-server test-lite test-client $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -61,5 +62,5 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/POE/Component/IKC.pm
 %dir %{perl_vendorlib}/POE/Component/IKC
 %{perl_vendorlib}/POE/Component/IKC/*.pm
-%{_examplesdir}/%{name}-%{version}/*
+%{_examplesdir}/%{name}-%{version}
 %{_mandir}/man3/*
