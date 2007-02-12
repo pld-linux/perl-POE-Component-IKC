@@ -7,7 +7,7 @@
 %define		pdir	POE
 %define		pnam	Component-IKC
 Summary:	POE::Component::IKC - POE Inter-Kernel Communication
-Summary(pl.UTF-8):   POE::Component::IKC - komunikacja wewnątrz jądra POE
+Summary(pl.UTF-8):	POE::Component::IKC - komunikacja wewnątrz jądra POE
 Name:		perl-POE-Component-IKC
 Version:	0.1901
 Release:	1
