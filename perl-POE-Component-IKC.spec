@@ -7,7 +7,7 @@
 %define		pdir	POE
 %define		pnam	Component-IKC
 Summary:	POE::Component::IKC - POE Inter-Kernel Communication
-Summary(pl):	POE::Component::IKC - komunikacja wewn±trz j±dra POE
+Summary(pl.UTF-8):   POE::Component::IKC - komunikacja wewnÄ…trz jÄ…dra POE
 Name:		perl-POE-Component-IKC
 Version:	0.1901
 Release:	1
@@ -28,9 +28,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This a first draft if Inter-Kernel Communication for POE. It is
 intended as a point of reference for discusion of issues involved.
 
-%description -l pl
-To jest pierwszy szkic komunikacji wewn±trz j±dra dla POE. Ma byæ
-punktem odniesienia do dyskutowania napotkanych problemów.
+%description -l pl.UTF-8
+To jest pierwszy szkic komunikacji wewnÄ…trz jÄ…dra dla POE. Ma byÄ‡
+punktem odniesienia do dyskutowania napotkanych problemÃ³w.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
