@@ -9,13 +9,13 @@
 Summary:	POE::Component::IKC - POE Inter-Kernel Communication
 Summary(pl.UTF-8):	POE::Component::IKC - komunikacja wewnątrz jądra POE
 Name:		perl-POE-Component-IKC
-Version:	0.2001
+Version:	0.2002
 Release:	1
 # "same as perl"
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	1dfd89f24a52e71b11795be2fac0fe93
+# Source0-md5:	d822bd7e770cdea009f4bc809b78905f
 URL:		http://search.cpan.org/dist/POE-Component-IKC/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
