@@ -9,18 +9,19 @@
 Summary:	POE::Component::IKC - POE Inter-Kernel Communication
 Summary(pl.UTF-8):	POE::Component::IKC - komunikacja wewnątrz jądra POE
 Name:		perl-POE-Component-IKC
-Version:	0.2002
+Version:	0.2200
 Release:	1
 # "same as perl"
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	d822bd7e770cdea009f4bc809b78905f
+# Source0-md5:	7e185f5c1e070451156c7415d0676eec
 URL:		http://search.cpan.org/dist/POE-Component-IKC/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with autodeps} || %{with tests}
-BuildRequires:	perl-POE >= 1:0.32
+BuildRequires:	perl-POE >= 2:1
+BuildRequires:	perl-POE-API-Peek >= 1
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -49,10 +50,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} pure_install \
 	DESTDIR=$RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-install client client2 client3 lclient $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-install server server2 userver $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-install shut-client shut-server test-lite test-client $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -63,5 +60,4 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorlib}/POE/Component/IKC.pm
 %dir %{perl_vendorlib}/POE/Component/IKC
 %{perl_vendorlib}/POE/Component/IKC/*.pm
-%{_examplesdir}/%{name}-%{version}
 %{_mandir}/man3/*
